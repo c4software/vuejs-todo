@@ -2,7 +2,7 @@
 
 The only purpose of this sample « website » is to illustrate a course (Add VueJS to a legacy app).
 
-This is the legacy app. Plain PHP, no Javascript version.
+This is the PHP version of the course. (No VueJS here)
 
 Take it as is.
 
