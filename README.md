@@ -8,7 +8,7 @@ Take it as is.
 
 ## Quick look
 
-[](sample.png)
+![sample](./sample.png)
 
 ## Whats inside
 
