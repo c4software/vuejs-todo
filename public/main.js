@@ -25,8 +25,9 @@ var app = new Vue({
   }
 });
 
-
-
+/**
+ * GET Ajax
+ */
 function get_data(uri){
   return new Promise(function(resolve, reject){
     fetch(uri).then(function(response){
@@ -38,4 +39,31 @@ function get_data(uri){
       reject(error);
     });
   });
+}
+
+/**
+ * POST Ajax
+ */
+function post_data(uri, data){
+  // Construction des parametres pour la requete.
+  var form = new FormData();
+  for(var k in data){
+    form.append(k, data[k]);
+  }
+
+  return new Promise(function(resolve, reject){
+    fetch("api/creation.php", {
+      method: "POST",
+      body: form
+    })
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(response) {
+      resolve(response);
+    })
+    .catch(function(error) {
+      reject(error);
+    });
+  })
 }
