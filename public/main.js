@@ -14,7 +14,7 @@ var app = new Vue({
       // Récupération des todos
       get_data("api/liste.php").then(function(todos){
         // Après la réussite de l’appel, sauvegarde des todos
-        this.todos = todos;
+        app.todos = todos;
       }).catch(function(e){
         console.log("Récupération impossible");
       })
@@ -31,8 +31,12 @@ var app = new Vue({
         console.log("Création impossible");
       });
     },
-    terminer: function(){},
-    supprimer: function(){}
+    terminer: function(id){
+      console.log("Terminer => " + id);
+    },
+    supprimer: function(id){
+      console.log("Supprimer => " + id);
+    }
   }
 });
 
