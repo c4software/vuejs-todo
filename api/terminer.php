@@ -1,5 +1,4 @@
 <?php
-
   session_start();
   header("content-type: application/json");
   include("../libs/functions.php");
@@ -17,5 +16,5 @@
       echo json_encode(array("success" => false));
     }
   }else{
-    echo json_encode(array("success" => false));    
+    echo json_encode(array("success" => false));
   }
