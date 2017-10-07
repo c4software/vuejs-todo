@@ -1,11 +1,11 @@
 <?php
-session_start();
-header("content-type: application/json");
-include("../libs/functions.php");
+  session_start();
+  header("content-type: application/json");
+  include("../libs/functions.php");
 
-init_todos();
+  init_todos();
 
-// List task
-echo json_encode($_SESSION["todos"]);
+  // List task
+  echo json_encode($_SESSION["todos"]);
 
 ?>
