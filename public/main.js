@@ -10,15 +10,26 @@ var app = new Vue({
     this.recupererListe();
   },
   methods:{
-    ajout: function () {},
     recupererListe: function (){
       // Récupération des todos
-      get_data("api/liste").then(function(todos){
+      get_data("api/liste.php").then(function(todos){
         // Après la réussite de l’appel, sauvegarde des todos
         this.todos = todos;
       }).catch(function(e){
-        console.log(e);
+        console.log("Récupération impossible");
       })
+    },
+    ajout: function () {
+      var data = {"texte": document.getElementById("texte").value}
+      post_data("api/creation.php", data).then(function(r){
+        if(r){
+          app.recupererListe();
+        }else{
+          console.log("Création impossible");
+        }
+      }).catch(function(e){
+        console.log("Création impossible");
+      });
     },
     terminer: function(){},
     supprimer: function(){}

@@ -37,7 +37,7 @@
         <p class="card-text"></p>
 
         <!-- Action -->
-        <form action="./actions/add.php" method="post" class="add">
+        <form v-on:submit.prevent="ajout" class="add">
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1"><span class="oi oi-pencil"></span></span>
             <input id="texte" name="texte" type="text" class="form-control" placeholder="I’ve got an idea… Lets write it down" aria-label="My new idea" aria-describedby="basic-addon1">
