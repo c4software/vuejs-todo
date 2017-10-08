@@ -17,7 +17,7 @@ var app = new Vue({
         app.todos = todos;
       }).catch(function(e){
         show_error("Récupération impossible");
-      })
+      });
     },
     ajout: function () {
       var data = {"texte": document.getElementById("texte").value}
@@ -32,10 +32,26 @@ var app = new Vue({
       });
     },
     terminer: function(id){
-      console.log("Terminer => " + id);
+      get_data("api/terminer.php?id=" + id).then(function(s){
+        if(s.success){
+          app.recupererListe();
+        }else{
+          show_error("Erreur de traitement de l’id : " + id);
+        }
+      }).catch(function(e){
+        show_error("Erreur de traitement de l’id : " + id);
+      });
     },
     supprimer: function(id){
-      console.log("Supprimer => " + id);
+      get_data("api/suppression.php?id=" + id).then(function(s){
+        if(s.success){
+          app.recupererListe();
+        }else{
+          show_error("Erreur de traitement de l’id : " + id);
+        }
+      }).catch(function(e){
+        show_error("Erreur de traitement de l’id : " + id);
+      });
     }
   }
 });
