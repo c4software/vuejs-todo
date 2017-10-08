@@ -59,7 +59,7 @@ function show_error(message){
  */
 function get_data(uri){
   return new Promise(function(resolve, reject){
-    fetch(uri).then(function(response){
+    fetch(uri, {method: "GET", credentials: 'same-origin'}).then(function(response){
       // On décode le JSON, et on continue
       return response.json();
     }).then(function(response) {
@@ -83,7 +83,8 @@ function post_data(uri, data){
   return new Promise(function(resolve, reject){
     fetch("api/creation.php", {
       method: "POST",
-      body: form
+      body: form,
+      credentials: 'same-origin'
     })
     .then(function(response){
       return response.json();
