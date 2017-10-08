@@ -16,7 +16,7 @@ var app = new Vue({
         // Après la réussite de l’appel, sauvegarde des todos
         app.todos = todos;
       }).catch(function(e){
-        console.log("Récupération impossible");
+        show_error("Récupération impossible");
       })
     },
     ajout: function () {
@@ -25,10 +25,10 @@ var app = new Vue({
         if(r){
           app.recupererListe();
         }else{
-          console.log("Création impossible");
+          show_error("Création impossible");
         }
       }).catch(function(e){
-        console.log("Création impossible");
+        show_error("Création impossible");
       });
     },
     terminer: function(id){
@@ -39,6 +39,10 @@ var app = new Vue({
     }
   }
 });
+
+function show_error(message){
+  swal("Désolé", message, "error");
+}
 
 /**
  * GET Ajax
