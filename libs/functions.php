@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Init the todos array in session
  */

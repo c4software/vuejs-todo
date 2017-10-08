@@ -1,8 +1,7 @@
 <?php
   session_start();
-  header("content-type: application/json");
   include("../libs/functions.php");
-  init_todos();
+  header("content-type: application/json");
 
   $id = $_GET["id"];
   // id in parameters ?

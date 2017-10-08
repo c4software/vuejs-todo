@@ -1,7 +1,7 @@
 <?php
   session_start();
-  header("content-type: application/json");
   include("../libs/functions.php");
+  header("content-type: application/json");
 
   init_todos();
 
