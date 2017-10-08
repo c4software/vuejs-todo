@@ -32,13 +32,11 @@ var app = new Vue({
       });
     },
     terminerSupprimer: function(action, id){
-      path = "";
-      if(action == "terminer"){
-        path = "terminer;"
-      }else{
-        path = "suppression";
+      // Action must be « terminer » or « suppression »
+      if(["terminer", "suppression"].indexOf(action) < 0){
+        return;
       }
-      
+
       get_data("api/" + path + ".php?id=" + id).then(function(s){
         if(s.success){
           app.recupererListe();
