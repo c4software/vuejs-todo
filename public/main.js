@@ -31,19 +31,15 @@ var app = new Vue({
         show_error("Création impossible");
       });
     },
-    terminer: function(id){
-      get_data("api/terminer.php?id=" + id).then(function(s){
-        if(s.success){
-          app.recupererListe();
-        }else{
-          show_error("Erreur de traitement de l’id : " + id);
-        }
-      }).catch(function(e){
-        show_error("Erreur de traitement de l’id : " + id);
-      });
-    },
-    supprimer: function(id){
-      get_data("api/suppression.php?id=" + id).then(function(s){
+    terminerSupprimer: function(action, id){
+      path = "";
+      if(action == "terminer"){
+        path = "terminer;"
+      }else{
+        path = "suppression";
+      }
+      
+      get_data("api/" + path + ".php?id=" + id).then(function(s){
         if(s.success){
           app.recupererListe();
         }else{

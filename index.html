@@ -55,8 +55,8 @@
           <li class="list-group-item" id="{id}" v-for="todo in todos">
             <span>{{todo.texte}}</span>
             <div class="pull-right action">
-              <a v-if="!todo.termine" v-on:click="terminer(todo.id)" class="btn btn-success"><span class="oi oi-check"></span></a>
-              <a v-if="todo.termine" v-on:click="supprimer(todo.id)" class="btn btn-danger"><span class="oi oi-trash"></span></a>
+              <a v-if="!todo.termine" v-on:click="terminerSupprimer(todo.id, 'terminer')" class="btn btn-success"><span class="oi oi-check"></span></a>
+              <a v-if="todo.termine" v-on:click="terminerSupprimer(todo.id, 'suppression')" class="btn btn-danger"><span class="oi oi-trash"></span></a>
             </div>
           </li>
         </ul>
