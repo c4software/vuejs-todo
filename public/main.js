@@ -37,7 +37,7 @@ var app = new Vue({
         return;
       }
 
-      get_data("api/" + path + ".php?id=" + id).then(function(s){
+      get_data("api/" + action + ".php?id=" + id).then(function(s){
         if(s.success){
           app.recupererListe();
         }else{
