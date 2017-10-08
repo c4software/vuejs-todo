@@ -1,4 +1,4 @@
-# Fake TODO VueJS « sample code »
+# Fake Todo VueJS « sample code »
 
 The only purpose of this sample « website » is to illustrate a course (Add VueJS to a legacy app).
 
