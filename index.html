@@ -57,6 +57,7 @@
             <div class="pull-right action">
               <a v-if="!todo.termine" v-on:click="terminerSupprimer('terminer', todo.id)" class="btn btn-success"><span class="oi oi-check"></span></a>
               <a v-if="todo.termine" v-on:click="terminerSupprimer('suppression', todo.id)" class="btn btn-danger"><span class="oi oi-trash"></span></a>
+              <a v-if="isShare" v-on:click="share(todo.texte)" class="btn"><span class="oi oi-share"></span></a>
             </div>
           </li>
         </ul>

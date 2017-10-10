@@ -1,7 +1,8 @@
 var app = new Vue({
   el: '.container',
   data:{
-    todos: []
+    todos: [],
+    isShare: navigator.share?true:false
   },
   created: function () {
     console.log("Démarrage TODO-APP");
@@ -10,6 +11,14 @@ var app = new Vue({
     this.recupererListe();
   },
   methods:{
+    share: function(texte){
+      navigator.share({
+        title: 'VueJS-Todo',
+        text: texte,
+        url: ""})
+        .then(function(){})
+        .catch(function(){})
+    },
     recupererListe: function (){
       // Récupération des todos
       get_data("api/liste.php").then(function(todos){
