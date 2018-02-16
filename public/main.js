@@ -90,7 +90,7 @@ function post_data(uri, data){
   }
 
   return new Promise(function(resolve, reject){
-    fetch("api/creation.php", {
+    fetch(uri, {
       method: "POST",
       body: form,
       credentials: 'same-origin'
